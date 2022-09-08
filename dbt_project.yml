@@ -9,6 +9,8 @@ models:
     intermediate:
       +materialized: ephemeral
 vars:
+    shopify_database: FIVETRAN_DATABASE
+    shopify_schema: SHOPIFY_NEENASWIM
   shopify:
     shopify_customer: "{{ ref('stg_shopify__customer') }}"
     shopify_order: "{{ ref('stg_shopify__order') }}"
@@ -19,3 +21,4 @@ vars:
     shopify_transaction: "{{ ref('stg_shopify__transaction') }}"
     shopify_refund: "{{ ref('stg_shopify__refund') }}"
     shopify_order_adjustment: "{{ ref('stg_shopify__order_adjustment') }}"
+    
