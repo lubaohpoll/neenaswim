@@ -36,16 +36,25 @@ jobs:
      - name: run deps  # Give each step in your job a name. This will enable you to track the steps in the logs.
        command: dbt deps
        
-            
-- name: RUN CUSTOMERS
-  schedule: 0 12 * * * # This example will run every day at 12:00pm
-  steps:
+ - name: DBT DEPS
+   targetName: dev # The name of the target that will be used when running the job. If it's not specified, the target will be named 'prod'.
+   schedule: 0 12 * * * # Define when this job should run, using cron format. This example will run every day at 12:00pm (according to your warehouse timezone). For help with cron formatting, visit https://crontab.guru/.
+   # Optional timeout that limits the maximum run time of the job. You can specify only hours, only minutes or both, for example "6h", "2h30m", "30m"
+   # The value can be in range from 30 minutes to 24 hours.
+   # If timeout is not specified, the job will be terminated after 24 hours.
+   timeout: 0h30m
+   steps:
      - name: run first customers
        command: dbt run --models shopify__customers 
-      
-- name: RUN ORDERS
-  schedule: 0 12 * * * # This example will run every day at 12:00pm
-  steps:
+
+ - name: DBT DEPS
+   targetName: dev # The name of the target that will be used when running the job. If it's not specified, the target will be named 'prod'.
+   schedule: 0 12 * * * # Define when this job should run, using cron format. This example will run every day at 12:00pm (according to your warehouse timezone). For help with cron formatting, visit https://crontab.guru/.
+   # Optional timeout that limits the maximum run time of the job. You can specify only hours, only minutes or both, for example "6h", "2h30m", "30m"
+   # The value can be in range from 30 minutes to 24 hours.
+   # If timeout is not specified, the job will be terminated after 24 hours.
+   timeout: 0h30m
+   steps:
      - name: run first orders model
        command: dbt run --models shopify__orders 
 #
