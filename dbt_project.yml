@@ -12,7 +12,7 @@ models:
 vars:
   shopify:
     shopify_database: FIVETRAN_DATABASE
-    shopify_schema: SHOPIFY_NEENASWIM
+    shopify_schema: shopify_neenaswim
     shopify_customer: "{{ ref('stg_shopify__customer') }}"
     shopify_order: "{{ ref('stg_shopify__order') }}"
     shopify_order_line: "{{ ref('stg_shopify__order_line') }}"
