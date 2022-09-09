@@ -1,4 +1,4 @@
-name: 'shopify'
+name: 'dbt_neena'
 version: '0.6.0'
 config-version: 2
     
