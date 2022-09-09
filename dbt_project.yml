@@ -1,7 +1,6 @@
 name: 'dbt_neena'
 version: '0.6.0'
 config-version: 2
-    
 require-dbt-version: [">=1.0.0", "<2.0.0"]
 models:
   shopify:
@@ -22,4 +21,3 @@ vars:
     shopify_transaction: "{{ ref('stg_shopify__transaction') }}"
     shopify_refund: "{{ ref('stg_shopify__refund') }}"
     shopify_order_adjustment: "{{ ref('stg_shopify__order_adjustment') }}"
-    
