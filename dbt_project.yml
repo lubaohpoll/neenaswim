@@ -1,6 +1,11 @@
 name: 'shopify'
 version: '0.6.0'
 config-version: 2
+
+vars:
+  shopify_database: FIVETRAN_DATABASE
+  shopify_schema: SHOPIFY_NEENASWIM
+    
 require-dbt-version: [">=1.0.0", "<2.0.0"]
 models:
   shopify:
@@ -10,8 +15,6 @@ models:
       +materialized: ephemeral
 vars:
   shopify:
-    shopify_database: FIVETRAN_DATABASE
-    shopify_schema: SHOPIFY_NEENASWIM
     shopify_customer: "{{ ref('stg_shopify__customer') }}"
     shopify_order: "{{ ref('stg_shopify__order') }}"
     shopify_order_line: "{{ ref('stg_shopify__order_line') }}"
